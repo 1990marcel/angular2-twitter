@@ -1,11 +1,11 @@
-var request = require('request');
-var config = require('./config');
+const request = require('request');
+const config = require('./config');
 
 functions = {
     authorize: function(req, res) {
-        var header = config.consumerkey + ':' +config.consumersecret;
-        var encheader = new Buffer(header).toString('base64');
-        var finalheader = 'Basic ' + encheader;
+        const header = config.consumerkey + ':' +config.consumersecret;
+        const encheader = new Buffer(header).toString('base64');
+        const finalheader = 'Basic ' + encheader;
         
         request.post('https://api.twitter.com/oauth2/token', {form: {'grant_type': 'client_credentials'}, 
         headers: {Authorization: finalheader}}, function(error, response, body) {
@@ -21,9 +21,9 @@ functions = {
     },
 
     search: function(req, res) {
-        var searchquery = req.body.query;
-        var encsearchquery = encodeURIComponent(searchquery);
-        var bearerheader = 'Bearer ' + config.bearertoken;
+        const searchquery = req.body.query;
+        const encsearchquery = encodeURIComponent(searchquery);
+        const bearerheader = 'Bearer ' + config.bearertoken;
         request.get('https://api.twitter.com/1.1/search/tweets.json?q=' + encsearchquery +
          '&result_type=recent', {headers: {Authorization: bearerheader}}, function(error, body, response) {
              if(error)

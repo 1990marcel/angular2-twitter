@@ -1,7 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var cors = require('cors');
-var functions = require('./functions');
+var functions = require('./process');
 
 var app = express();
 
@@ -11,3 +11,4 @@ app.post('/authorize', functions.authorize);
 app.post('/search', functions.search);
 
 app.listen(3000);
+console.log('app is listening');
