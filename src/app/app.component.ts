@@ -13,7 +13,7 @@ export class AppComponent {
 
 constructor(private http: Http){}
 
-  makecall(){
+ authorize(){
     const headers = new Headers();
     headers.append('Content-Type', 'application/X-www-form-urlencoded');
     this.http.post('http://localhost:3000/authorize', {headers: headers})
@@ -21,7 +21,7 @@ constructor(private http: Http){}
       console.log(res);
     })
   }
-  searchcall(){
+  search(){
     const headers = new Headers();
     const searchterm = 'query=' + this.searchquery;
     headers.append('Content-Type', 'application/X-www-form-urlencoded');

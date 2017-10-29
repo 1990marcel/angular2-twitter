@@ -1,20 +1,21 @@
-<button md-raised-button color="primary"(click)="makecall()">Authorize</button>
+<button md-raised-button color="primary"(click)="authorize()">Authorize</button>
 
 <form class="example-form">
     <md-form-field class="example-full-width">
       <input mdInput placeholder="#tag" id="hashtags" [(ngModel)]="searchquery" name = "searchquery" [ngModelOptions]="{standalone: true}">
     </md-form-field>
+    <button md-raised-button color="warn"(click)="search()">Search</button>    
+</form>
 
-    <button md-raised-button color="warn"(click)="searchcall()">Search</button>
-    <div *ngFor="let item of tweetsdata" class="col s12 m7">
-      <md-card class="example-card">
+<div *ngFor="let item of tweetsdata" class="col s12 m7">
+    <md-card class="example-card">
       <img md-card-image src="{{item.user.profile_image_url}}" alt="Photo of a Shiba Inu">
       <md-card-title>{{item.user.name}}</md-card-title>
       <md-card-content>
-    <p>
-      {{item.text}}
-    </p>
-  </md-card-content> 
-      </md-card>
-    </div>
-</form>
+        <p>
+          {{item.text}}
+        </p>
+      </md-card-content> 
+    </md-card>
+</div>
+
